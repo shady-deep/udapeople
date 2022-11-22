@@ -5,6 +5,7 @@ Parameters:
   ID:
     Description: Unique identifier.
     Type: String
+    default: ${CIRCLECI_WORKFLOW_ID:0:7}
 
 Resources:
   WebsiteBucket:
