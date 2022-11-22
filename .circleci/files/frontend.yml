@@ -10,7 +10,9 @@ Resources:
   WebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: udapeople-iqm5b4
+      BucketName: !Sub
+      - "udapeople-${ID}"
+      - ID: !Ref ID
       AccessControl: PublicRead
       WebsiteConfiguration:
         IndexDocument: index.html
