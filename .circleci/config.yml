@@ -149,21 +149,7 @@ jobs:
           root: ~/
           paths:
             - project/.circleci/ansible/inventory.txt
-
-  destroy-environment:
-    description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
-    parameters:
-      WORKFLOW_ID:
-        Type: String
-        default: CIRCLECI_WORKFLOW_ID:0:7
-    steps:
-      - run:
-          name: Destroy environments
-          when: on_fail
-          command: |
-            # Your code here
-            exit 1
-      # Here's where you will add some code to rollback on failure  
+ 
 workflows:
   default:
     jobs:
