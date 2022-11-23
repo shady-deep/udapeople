@@ -1,11 +1,16 @@
 Description: >
   UdaPeople frontend stack.
 
+Parameters:
+  ID:
+    Description: Unique identifier.
+    Type: String
+
 Resources:
   WebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: udapeople-9sszp1
+      BucketName: !Sub UdaPeople-${ID}
       AccessControl: PublicRead
       WebsiteConfiguration:
         IndexDocument: index.html
