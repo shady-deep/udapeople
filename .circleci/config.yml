@@ -128,24 +128,6 @@ jobs:
              npm audit fix --force --audit-level=critical
              npm audit --audit-level=critical
 
-  deploy-infrastructure:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - installawscli
-      - run:
-          name: Ensure back-end infrastructure exists
-          command: |
-            aws cloudformation deploy \
-              --template-file .circleci/files/backend.yml \
-              --tags project=udapeople \
-              --stack-name "udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}" \
-              --parameter-overrides ID="${CIRCLE_WORKFLOW_ID:0:7}"   
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - project/.circleci/ansible/inventory.txt
   configure-infrastructure:
     docker: 
       - image: cimg/base:stable
@@ -162,8 +144,7 @@ jobs:
           command: |
             cd .circleci/ansible
             cat inventory.txt
-            ansible-playbook -i inventory.txt configure-server.yml
-      - destroy-environment   
+            ansible-playbook -i inventory.txt configure-server.yml 
 workflows:
   default:
     jobs:
@@ -186,6 +167,5 @@ workflows:
           filters:
             branches:
               only: [master]
-      - configure-infrastructure:
-          requires:
-            - "deploy-infrastructure"
+      - configure-infrastructure
+          
