@@ -158,6 +158,7 @@ jobs:
       - image: circleci/node:14.18.2-buster-browsers-legacy
     steps:
       - checkout
+      - installawscli
       - run:
           name: Ensure back-end infrastructure exists
           command: |
