@@ -165,7 +165,7 @@ jobs:
 
   run-migrations:
     docker:
-      - image: cimg/node:13.8.0
+      - image: circleci/node:14.18.2-buster-browsers-legacy
     steps:
       - checkout
       - installawscli
