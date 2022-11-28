@@ -245,7 +245,7 @@ jobs:
       - run:
           name: Deploy frontend objects
           command: |
-             cd backend
+             cd frontend
              npm run build
              aws s3 cp dist s3://udapeople-9sszp1 --recursive
 
