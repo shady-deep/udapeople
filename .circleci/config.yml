@@ -236,14 +236,18 @@ jobs:
       - run:
           name: Get backend url
           command: |
-            # your code here
-            export API_URL="http://${BACKEND_IP}:3030"
-            echo "${API_URL}"
+            BACKEND_PUBLIC_IP=$(aws ec2 describe-instances \
+              --filters "Name=tag:Name,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
+              --query 'Reservations[*].Instances[*].Publicipaddress' \
+              --output text)
+            echo "API_URL=http://${BACKEND_PUBLIC_IP}:3030" >> frontend/.env
+            cat frontend/.env
       - run:
           name: Deploy frontend objects
           command: |
              cd frontend
              npm install
+             aws s3 cp dist s3://udapeople-9sszp1 --recursive
 
 workflows:
   default:
