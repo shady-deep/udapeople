@@ -285,7 +285,7 @@ jobs:
              export YPEORM_MIGRATIONS=./migrations/*.ts
 
              cd .circleci/ansible
-             ansible-playbook -i inventory.txt deploy_backend.yml
+             ansible-playbook -i inventory.txt deploy-backend.yml
 workflows:
   default:
     jobs:
