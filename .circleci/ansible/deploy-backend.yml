@@ -11,7 +11,7 @@
 
   environment:
   NODE_ENV: production
-  VERSION: 1
+  VERSION: "1"
   TYPEORM_CONNECTION: "{{ lookup('env', 'TYPEORM_CONNECTION') }}"
   TYPEORM_MIGRATIONS_DIR: "{{ lookup('env', 'TYPEORM_MIGRATIONS_DIR') }}"
   TYPEORM_ENTITIES: "{{ lookup('env', 'TYPEORM_ENTITIES') }}"
@@ -33,6 +33,6 @@
       changed_when: false
 
     - setup:
-    
+
   roles:
     - deploy
