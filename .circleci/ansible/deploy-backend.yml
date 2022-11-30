@@ -35,4 +35,4 @@
     - setup:
 
   roles:
-    - role: '/.circleci/ansible/roles/deploy'
+    - role: '.circleci/ansible/roles/deploy'
