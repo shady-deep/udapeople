@@ -297,12 +297,12 @@ jobs:
       - run:
           name: Frontend smoke test.
           command: |
-            FRONTEND_WEBSITE=http://udapeople-9sszp1.s3-website.$(AWS_DEFAULT_REGION).amazonaws.com
+            FRONTEND_WEBSITE=http://udapeople-9sszp1.s3-website-us-east-1.amazonaws.com
             if curl -s $FRONTEND_WEBSITE | grep "welcome"
             then  
               exit 0
             else
-              exit 1
+              exit 2
             fi
       - run:
           name: backend smoke test.
