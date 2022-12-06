@@ -197,9 +197,11 @@ jobs:
 
   deploy-infrastructure:
     docker:
-      - image: circleci/node:14.18.2-buster-browsers-legacy
+      - image: cimg/base:stable
     steps:
       - checkout
+      - restore_cache:
+          keys: [backend-build]
       - installawscli
       - run:
           name: Ensure back-end infrastructure exists
@@ -228,6 +230,8 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - restore_cache:
+          keys: [frontend-build]
       - installawscli
       - installnodejs
       - run:
