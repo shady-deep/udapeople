@@ -177,6 +177,8 @@ jobs:
       - checkout
       - restore_cache:
           keys: [backend-build]
+      - installawscli
+      - installnodejs
       - run:
           name: Run migrations
           command: |
