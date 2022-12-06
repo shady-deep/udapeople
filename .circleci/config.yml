@@ -176,6 +176,7 @@ jobs:
     steps:
       - checkout
       - installawscli
+      - installnodejs
       - run:
           name: Run migrations
           command: |
