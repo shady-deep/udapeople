@@ -175,8 +175,8 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - installawscli
-      - installnodejs
+      - restore_cache:
+          keys: [backend-build]
       - run:
           name: Run migrations
           command: |
