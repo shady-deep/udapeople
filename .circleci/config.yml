@@ -65,8 +65,8 @@ jobs:
       - image: cimg/node:13.8.0
     steps:
       - checkout
-      - installawscli
-      - installnodejs
+      - restore_cache:
+          keys: [frontend-build]
       - run:
           name: Build front-end
           command: |
