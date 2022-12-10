@@ -65,6 +65,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - installnodejs
       - restore_cache:
           keys: [frontend-build]
       - run:
