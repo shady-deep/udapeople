@@ -99,7 +99,7 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "react-table": "^6.10.0",
     "react-tagsinput": "^3.19.0",
-    "react-toast-notifications": "^2.0.2",
+    "react-toast-notifications": "^2.5.1",
     "react-toastify": "^5.3.1",
     "redux": "^4.0.3",
     "redux-actions": "^2.6.5",
